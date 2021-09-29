@@ -6,33 +6,34 @@ var startButton = document.getElementById("start");
 var quiz = document.getElementById("mtbQuiz");
 var score = 0;
 var penalty = 5;
+var button;
 console.log(quiz)
 // Questions wrapped into an Array
 var mtbQuiz = [
    { 
     question: 'Mountain bikes were first explored as useful transportation by the military in what year?',
     options: ['1850','1896','1920','1905'],
-    fact: "1896",
+    fact: "1896"
    },      
    {
    question: 'What size of wheel and tire did the first mountain bikers utilize?',
     options: ['650B','29inch','700C','650C'],
-    fact: "650B",
+    fact: "650B"
    },
    {
     question: 'In what country did modern mountain biking find its inception?',
     options: ['France','England','USA','Italy'],
-    fact: "USA",
+    fact: "USA"
     },
     {
     question: 'What decade did the to The Larkspur Canyon Gang start riding Balloners becoming the first mountain bike club in history. ',
     options: ['1930s','1950s','1920s','1960s'],
-    fact: "1960s",
+    fact: "1960s"
     },
     {
     question: 'In what county in California is considered the grandfather of modern mountain biking?',
     options: ['Marin','Los Angeles','Humboldt','Placer'],
-    fact: "Marin",
+    fact: "Marin"
     },
 ]
 // Creates a event listener to start time on click.
@@ -59,26 +60,36 @@ startButton.onclick = function(){
 } 
 console.log(startButton)
 // Trigger First Question.
-var generateQuiz = $('#mtbQuiz');
 function updateQuiz(){
-console.log(quiz)
-removeAllChildNodes(quiz)
-var question = document.createElement("p")
+console.log(quiz);
+removeAllChildNodes(quiz);
+var question = document.createElement("p");
 quiz.appendChild(question);
 question.textContent = ''
 question.textContent = mtbQuiz[currentQuestion].question
 // Creates button elements and adds a listener for a click. 
 for (var i = 0; i < mtbQuiz[currentQuestion].options.length; i++){
-    let button = document.createElement('button')
+    button = document.createElement('button')
     button.textContent = mtbQuiz[currentQuestion].options[i]
-    button.addEventListener('click', function(){
+    console.log(button.textContent)
+    button.setAttribute("id",i)
+    quiz.appendChild(button);
+    button.addEventListener('click', function(event){
+        event.preventDefault();
+        var btn = event.target;
+        // var btn = button.getAttribute("id");
+        if (currentQuestion < mtbQuiz.length-1){
+        checkFact(btn);
         currentQuestion++
         updateQuiz();
+    } else {displayScore()}
     });
-    quiz.appendChild(button);
+   
 }
+    
 };
 console.log(updateQuiz)
+console.log()
 // Event listener to advance to next question.   
 startButton.addEventListener('click', function(){
     updateQuiz();
@@ -89,6 +100,23 @@ function removeAllChildNodes(parent) {
         parent.removeChild(parent.firstChild);
     }
 }
+
+function checkFact(btn){
+    // var userChoice = button.textContent;
+    console.log(mtbQuiz[currentQuestion].fact)
+    // console.log(userChoice)
+    if (btn.textContent === mtbQuiz[currentQuestion].fact)
+    {console.log("Correct!")}
+    else {console.log("Wrong!")}
+    
+}
+
+function displayScore(){
+    removeAllChildNodes(quiz);
+    alert("Game over! Thanks for quizzing.") 
+}
+
+
 
 //function 
 
