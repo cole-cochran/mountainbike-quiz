@@ -41,7 +41,7 @@ startButton.onclick = function(){
     // Remove button
     startButton.remove();
     function setTime() {	
-    // Sets interval in variable	
+    // Sets timer interval in variable	
     var timerInterval = setInterval(function() {	
       secondsLeft--;	
       timer.textContent = secondsLeft + " seconds left until the Quiz has ended.";	
@@ -49,7 +49,7 @@ startButton.onclick = function(){
       if(secondsLeft === 0) {	
         // Stops execution of action at set interval	
         clearInterval(timerInterval);	
-        // Calls function to create and append image
+        // Calls function to create and append Score
         displayScore();	
       }	
   	
@@ -90,7 +90,7 @@ function removeAllChildNodes(parent) {
     }
 }
 
-function 
+//function 
 
 // Logic to deduct time for a wrong answer
 
