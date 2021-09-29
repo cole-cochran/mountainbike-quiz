@@ -16,6 +16,6 @@
 ## Deployment Link
 [Password Generator](https://cole-cochran.github.io/mountainbike-quiz/)
 ---
-[Screenshot]()
+[Screenshot](https://github.com/cole-cochran/mountainbike-quiz/blob/main/assets/images/screencapture-cole-cochran-github-io-mountainbike-quiz-2021-09-28-19_11_47.png?raw=true)
 ---
 This project was written by Cole Cochran, with a little help from my bootcamp buddies Damien Luzzo, and Bradley O'Dell.
