@@ -2,7 +2,7 @@
 ## Process Used to complete the Quiz
 ---
 1. Created the Global Variables.
-2. Took the questioins and wrapped them into an Array.
+2. Took the questions and wrapped them into an Array.
 3. Setup an event listener to start time on click.
 4. Created on click Remove button for the start button. 
 5. Set the timer interval in variable.
